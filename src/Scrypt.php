@@ -24,7 +24,7 @@ final class Scrypt extends RepeatableHash
     {
         parent::__construct('SCRYPT', 0, 8, $builder);
 
-        if (!is_null($builder->getKey()) || strlen($builder->getKey()) === 0) {
+        if (is_null($builder->getKey()) || strlen($builder->getKey()) === 0) {
             throw new \InvalidArgumentException('A non-empty key is required for Scrypt');
         }
 
