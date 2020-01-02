@@ -33,10 +33,10 @@ final class Scrypt extends RepeatableHash
         }
 
         $this->key = base64_encode($builder->getKey());
-        if (is_null($this->getSaltSeparator())) {
+        if (is_null($builder->getSaltSeparator())) {
             $this->saltSeparator = base64_encode('');
         } else {
-            $this->saltSeparator = base64_encode($this->getSaltSeparator());
+            $this->saltSeparator = base64_encode($builder->getSaltSeparator());
         }
         $this->memoryCost = $builder->getMemoryCost();
     }
