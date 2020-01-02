@@ -32,7 +32,7 @@ final class Scrypt extends RepeatableHash
             throw new \InvalidArgumentException('memoryCost must be between 1 and 14');
         }
 
-        $this->key = base64_encode($builder->getKey());
+        $this->key = $builder->getKey();
         if (is_null($builder->getSaltSeparator())) {
             $this->saltSeparator = '';
         } else {

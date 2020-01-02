@@ -16,7 +16,7 @@ abstract class Hmac implements Hashable
         if (is_null($builder->getKey()) || strlen($builder->getKey()) === 0) {
             throw new \InvalidArgumentException('A non-empty key is required for HMAC algorithm');
         }
-        $this->key = base64_encode($builder->getKey());
+        $this->key = $builder->getKey();
     }
 
     /**
