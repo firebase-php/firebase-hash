@@ -11,6 +11,9 @@ stages:
 install:
     - composer update --no-progress --no-interaction --no-suggest
 
+script:
+    - vendor/bin/phpunit
+
 jobs:
     include:
         - stage: lint
@@ -21,18 +24,12 @@ jobs:
         - stage: test
           name: Test PHP 7.2
           php: '7.2'
-          script:
-              - vendor/bin/phpunit
         - stage: test
           name: Test PHP 7.3
           php: '7.3'
-          script:
-              - vendor/bin/phpunit
         - stage: test
           name: Test PHP 7.4
           php: '7.4'
-          script:
-              - vendor/bin/phpunit
 cache:
     directories:
         - vendor
