@@ -1,5 +1,5 @@
 {
-    "name": "firebase-php/hash",
+    "name": "firebase-php/firebase-hash",
     "description": "Hash algorithm identifiers used by Firebase",
     "homepage": "https://github.com/firebase-php/firebase-hash",
     "keywords": [

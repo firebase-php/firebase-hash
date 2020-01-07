@@ -24,7 +24,7 @@ final class Scrypt extends RepeatableHash
     {
         parent::__construct('SCRYPT', 0, 8, $builder);
 
-        if (!is_null($builder->getKey()) || strlen($builder->getKey()) === 0) {
+        if (is_null($builder->getKey()) || strlen($builder->getKey()) === 0) {
             throw new \InvalidArgumentException('A non-empty key is required for Scrypt');
         }
 
@@ -32,11 +32,11 @@ final class Scrypt extends RepeatableHash
             throw new \InvalidArgumentException('memoryCost must be between 1 and 14');
         }
 
-        $this->key = base64_encode($builder->getKey());
-        if (is_null($this->getSaltSeparator())) {
-            $this->saltSeparator = base64_encode('');
+        $this->key = $builder->getKey();
+        if (is_null($builder->getSaltSeparator())) {
+            $this->saltSeparator = '';
         } else {
-            $this->saltSeparator = base64_encode($this->getSaltSeparator());
+            $this->saltSeparator = $builder->getSaltSeparator();
         }
         $this->memoryCost = $builder->getMemoryCost();
     }
